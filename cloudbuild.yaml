@@ -1,3 +1,18 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', '${LOCATION}-docker.pkg.dev/${PROJECT_ID}/docker-repo/test-app:${SHORT_SHA}', './test-app/']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', '${LOCATION}-docker.pkg.dev/${PROJECT_ID}/docker-repo/test-app:${SHORT_SHA}', './test-app/']
+  
+  # Push the image to Artifact Registry
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '${LOCATION}-docker.pkg.dev/${PROJECT_ID}/docker-repo/test-app:${SHORT_SHA}']
+
+
+#  # deploy container image to GKE
+#  - name: "gcr.io/cloud-builders/gke-deploy"
+#    args:
+#    - run
+#    - --filename=./kubernetes/test-app.yaml
+#    - --image=${LOCATION}-docker.pkg.dev/${PROJECT_ID}/docker-repo/test-app:latest
+#    - --location=${LOCATION}
+#    - --cluster=
