@@ -8,11 +8,11 @@ steps:
     args: ['push', '${LOCATION}-docker.pkg.dev/${PROJECT_ID}/docker-repo/test-app:${SHORT_SHA}']
 
 
-#  # deploy container image to GKE
-#  - name: "gcr.io/cloud-builders/gke-deploy"
-#    args:
-#    - run
-#    - --filename=./kubernetes/test-app.yaml
-#    - --image=${LOCATION}-docker.pkg.dev/${PROJECT_ID}/docker-repo/test-app:latest
-#    - --location=${LOCATION}
-#    - --cluster=
+  # deploy container image to GKE
+  - name: "gcr.io/cloud-builders/gke-deploy"
+    args:
+    - run
+    - --filename=./kubernetes/test-app.yaml
+    - --image=${LOCATION}-docker.pkg.dev/${PROJECT_ID}/docker-repo/test-app:latest
+    - --location=${LOCATION}
+    - --cluster=sample-cluster

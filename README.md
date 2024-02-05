@@ -16,3 +16,6 @@ gcloud services enable secretmanager.googleapis.com --project=lazlo-python-test
 Create cloud build repository link manually on the console
 Create coudbuild trigger manually ont he console
 
+gcloud services enable container.googleapis.com --project lazlo-python-test
+Create manually a GKE cluster
+
