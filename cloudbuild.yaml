@@ -13,6 +13,6 @@ steps:
     args:
     - run
     - --filename=./kubernetes/test-app.yaml
-    - --image=${LOCATION}-docker.pkg.dev/${PROJECT_ID}/docker-repo/test-app:latest
+    - --image=${LOCATION}-docker.pkg.dev/${PROJECT_ID}/docker-repo/test-app:${SHORT_SHA}
     - --location=${LOCATION}
     - --cluster=sample-cluster
